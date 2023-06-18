@@ -17,6 +17,10 @@ body {
     font-family: "Proxima Nova", Arial, sans-serif;
 }
 
+body, html {
+    height: 100%; /* Ещё измените height на 100% вместо min-height */
+}
+
 h1 {
     font-family: "Proxima Nova", Arial, sans-serif;
     font-weight: bold;
@@ -25,92 +29,81 @@ h1 {
 header {
     background-image: url("../img/background-full.png");
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
-    left: 0px;
-    top: 0px;
     width: 100%;
-    height: 890px;
+    /* Высота будет задана в script.js */
     z-index: 1;
+    display: flex;
+}
+
+header .content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .common-container {
-    position: relative;
-    left: 0px;
-    top: 0px;
+    background-image: url("../img/shadow-2.png");
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    height: 890px;
+    height: 1443px;
     z-index: 2;
 }
 
 .container {
-    position: relative;
     display: flex;
-    margin-left: 363px;
+    justify-content: flex-start;
+    margin-left: 0px;
+    height: 117px;
+}
+
+.container-mob {
+    display: none;
+}
+
+.header-logo {
+    display: flex;
+    flex: 33%;
+    margin-left: 0px;
+    justify-content: flex-end;
+    
+}
+
+.logo {
+    
 }
 
 .nav {
-    position: absolute;
-    top: 45px;
-    left: 298px;
+    margin-top: -6px;
+    margin-left: 49px;
+    display: flex;
+    flex: 34%;
+    white-space: nowrap;
+    align-items: center;
 }
 
-.nav-item-1 {
+.nav-item {
     color: #f2f2f2;
     font-family: "Proxima Nova";
     font-size: 16px;
     text-decoration: none;
-    margin-right: 17px;
-}
-.nav-item-2 {
-    color: #f2f2f2;
-    font-family: "Proxima Nova";
-    font-size: 16px;
-    text-decoration: none;
-    margin-right: 16px;
-}
-.nav-item-3 {
-    color: #f2f2f2;
-    font-family: "Proxima Nova";
-    font-size: 16px;
-    text-decoration: none;
-    margin-right: 17px;
-}
-.nav-item-4 {
-    color: #f2f2f2;
-    font-family: "Proxima Nova";
-    font-size: 16px;
-    text-decoration: none;
-    margin-right: 17px;
-}
-.nav-item-5 {
-    color: #f2f2f2;
-    font-family: "Proxima Nova";
-    font-size: 16px;
-    text-decoration: none;
-    margin-right: 16px;
-}
-.nav-item-6 {
-    color: #f2f2f2;
-    font-family: "Proxima Nova";
-    font-size: 16px;
-    text-decoration: none;
-    margin-right: 16px;
-}
-.nav-item-7 {
-    color: #f2f2f2;
-    font-family: "Proxima Nova";
-    font-size: 16px;
-    text-decoration: none;
-    margin-right: 17px;
+    margin-right: 21px;
 }
 
 .header-btn {
-    position: absolute;
-    top: 35px;
-    left: 978px
+    margin-top: 0px;
+    margin-left: 0px;
+    flex: 33%;
 }
 
 .btn {
+    margin-top: 35px;
+    margin-left: 30px;
     background-image: url("../img/btn_bot.png");
     background-image: url("../img/btn_top.png");
     box-shadow: 0px 8px 18px 0px rgba(24, 24, 24, 0.75);
@@ -125,112 +118,205 @@ header {
 }
 
 .button-text-container {
-    margin-top: 88px;
-    margin-left: 215px;
-    margin-right: 208px;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
     display: flex;
-    position: relative;
+    height: auto;
+}
+
+.btc {
+}
+
+.b-container {
+    margin-top: 93px;
+    margin-left: 125px;
 }
 
 .btn-container {
-    position: relative;
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+    margin-top: 0px;
+    margin-left: 0px;
+    padding-top: 0px;
+    padding-left: 0px;
     text-align: center;
 }
 
-.btn-vk {
-    position: relative;
-    left: 3px;
-}
-
-.img-vk {
-    position: absolute;
-    top: 19px;
-    left: 21px;
-}
-
 .vk-container {
-    
+    display: flex;
+    flex-direction: column;
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+.btn-vk {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    /* центрируем контент по горизонтали */
+    align-items: center;
+    /* центрируем контент по вертикали */
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+.btn-vk::before {
+    content: '';
+    /* обязательная строка для отображения псевдоэлемента */
+    position: absolute;
+    /* позиция изображения относительно контейнера */
+    top: 50%;
+    /* центрируем изображение по вертикали */
+    left: 50%;
+    /* центрируем изображение по горизонтали */
+    transform: translate(-50%, -50%);
+    /* корректировка позиционирования */
+    background-image: url('../img/vk.png');
+    /* путь к изображению */
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 26px;
+    /* ширина картинки */
+    height: 15px;
+    /* высота картинки */
+    pointer-events: none;
+    /* игнорирование манипуляций с мышью (например клик) */
 }
 
 .vk-text {
-    position: absolute;
-    margin-top: 6px;
-    left: -1px;
+    margin-top: 11px;
+    margin-left: 0px;
     color: #fff;
 }
 
 .inst-container {
-    position: relative;
-    margin-top: 85px;
-    left: 3px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 58px;
+    margin-left: 0px;
 }
 
 .btn-inst {
+    display: flex;
+    flex-direction: column;
     position: relative;
+    justify-content: center;
+    /* центрируем контент по горизонтали */
+    align-items: center;
+    /* центрируем контент по вертикали */
+    margin-top: 0px;
+    margin-left: 0px;
 }
 
-.img-inst {
+.btn-inst::before {
+    content: '';
+    /* обязательная строка для отображения псевдоэлемента */
     position: absolute;
-    top: 14px;
-    left: 23px;
+    /* позиция изображения относительно контейнера */
+    top: 50%;
+    /* центрируем изображение по вертикали */
+    left: 50%;
+    /* центрируем изображение по горизонтали */
+    transform: translate(-50%, -50%);
+    /* корректировка позиционирования */
+    background-image: url('../img/inst.png');
+    /* путь к изображению */
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 21px;
+    /* ширина картинки */
+    height: 21px;
+    /* высота картинки */
+    pointer-events: none;
+    /* игнорирование манипуляций с мышью (например клик) */
 }
 
 .inst-text {
-    position: absolute;
-    margin-top: 4px;
-    left: -1px;
+    margin-top: 10px;
+    margin-left: 0px;
     color: #fff;
 }
 
 .wts-container {
-    position: relative;
-    margin-top: 71px;
-    left: 3px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 47px;
+    margin-left: 0px;
 }
 
 .btn-wts {
+    display: flex;
+    flex-direction: column;
     position: relative;
+    justify-content: center;
+    /* центрируем контент по горизонтали */
+    align-items: center;
+    /* центрируем контент по вертикали */
+    margin-top: 0px;
+    margin-left: 0px;
 }
 
-.img-wts {
+.btn-wts::before {
+    content: '';
+    /* обязательная строка для отображения псевдоэлемента */
     position: absolute;
-    top: 12px;
-    left: 23px;
+    /* позиция изображения относительно контейнера */
+    top: 50%;
+    /* центрируем изображение по вертикали */
+    left: 50%;
+    /* центрируем изображение по горизонтали */
+    transform: translate(-50%, -50%);
+    /* корректировка позиционирования */
+    background-image: url('../img/wts.png');
+    /* путь к изображению */
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 21px;
+    /* ширина картинки */
+    height: 21px;
+    /* высота картинки */
+    pointer-events: none;
+    /* игнорирование манипуляций с мышью (например клик) */
 }
 
 .small-btn {
-    position: relative;
     width: 50px;
     height: 50px;
     border-radius: 50px;
-    left: 10px;
     border: none;
-    background-image: -moz-linear-gradient( 90deg, rgb(231,182,121) 0%, rgb(243,209,167) 100%);
-    background-image: -webkit-linear-gradient( 90deg, rgb(231,182,121) 0%, rgb(243,209,167) 100%);
-    background-image: -ms-linear-gradient( 90deg, rgb(231,182,121) 0%, rgb(243,209,167) 100%);
+    background-image: -moz-linear-gradient(90deg, rgb(231, 182, 121) 0%, rgb(243, 209, 167) 100%);
+    background-image: -webkit-linear-gradient(90deg, rgb(231, 182, 121) 0%, rgb(243, 209, 167) 100%);
+    background-image: -ms-linear-gradient(90deg, rgb(231, 182, 121) 0%, rgb(243, 209, 167) 100%);
     box-shadow: 0px 1px 1px 0px rgba(24, 24, 24, 0.75);
 }
 
 .wts-text {
-    position: absolute;
-    margin-top: 5px;
-    left: -1px;
+    margin-top: 9px;
+    margin-left: 0px;
     color: #fff;
 }
 
 .button-text-container-2 {
-    margin-left: 143px;
-    width: 100%;
+    margin-top: 0px;
+    margin-left: 0px;
+    display: flex;
+    flex: 6;
+    flex-direction: column;
 }
 
 .text-container {
-    position: relative;
+    margin-top: 81px;
+    margin-left: 9px;
+
 }
 
 .merci-text {
-    position: absolute;
-    top: -11px;
-    left: -14px;
+    margin-top: 1px;
+    margin-left: 5px;
     font-size: 24px;
     font-family: "Segoe Script";
     color: #f0ca9b;
@@ -239,9 +325,8 @@ header {
 }
 
 .relax-text {
-    position: absolute;
-    top: 31px;
-    left: -18px;
+    margin-top: 3px;
+    margin-left: 1px;
     font-size: 50.49px;
     font-family: "Proxima Nova";
     color: #f8f8f8;
@@ -252,11 +337,10 @@ header {
 }
 
 .lorem-text {
-    position: absolute;
+    margin-top: 24px;
+    margin-left: 2px;
     width: 630px;
     word-wrap: break-word;
-    top: 176px;
-    left: -18px;
     font-size: 18px;
     font-family: "Proxima Nova";
     color: #f8f8f8;
@@ -265,132 +349,461 @@ header {
 }
 
 .button-detail {
-    margin-top: 352px;
-    margin-left: -18px;
+    margin-top: 89px;
+    margin-left: 11px;
+    cursor: pointer;
 }
 
 .btn-detail {
-    background-image: -moz-linear-gradient( 90deg, rgb(231,182,121) 0%, rgb(243,209,167) 100%);
-    background-image: -webkit-linear-gradient( 90deg, rgb(231,182,121) 0%, rgb(243,209,167) 100%);
-    background-image: -ms-linear-gradient( 90deg, rgb(231,182,121) 0%, rgb(243,209,167) 100%);
+    position: relative;
+    display: inline-block;
+    margin-top: 0px;
+    margin-left: 0px;
+    padding-right: 1.4%;
+    padding-top: 0px;
     width: 310px;
     height: 70px;
     border-radius: 50px;
-    border: none;
+    /* Значение border-radius совпадает с основным элементом */
     font-size: 16px;
-    padding-left: 0px;
     word-spacing: -1px;
     font-family: "Proxima Nova";
     color: #0a0a12;
     font-weight: bold;
-    line-height: 1.2;
-    position: relative;
-    background-color: rgba(240,201,154, 1); /* Золотой цвет с полной непрозрачностью */
-    box-shadow: 0px 0px 100px 56px rgba(169, 146, 119, 0.05), 0px 0px 100px 56px rgba(169, 146, 119, 0.05), 0px 0px 100px 56px rgba(169, 146, 119, 0.05);
+    line-height: 70px;
+    text-align: center;
+    background-color: rgba(240, 201, 154, 1);
+    box-shadow: 0px 0px 100px 56px rgba(169, 146, 119, 0.05),
+        0px 0px 100px 56px rgba(169, 146, 119, 0.05),
+        0px 0px 100px 56px rgba(169, 146, 119, 0.05);
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
 
-.rounded-coppy {
+.btn-detail::after {
+    content: "";
     position: absolute;
-    top: 344px;
-    left: 169px;
+    top: -17px;
+    /* Отступ от верхней границы блока */
+    left: -16px;
+    /* Отступ от левой границы блока */
+    width: calc(100% + 33px);
+    /* Ширина псевдоэлемента с учетом отступов */
+    height: calc(100% + 33px);
+    /* Высота псевдоэлемента с учетом отступов */
+    border-radius: 50px;
+    /* Значение border-radius совпадает с основным элементом */
+    border: 1px solid rgba(240, 201, 154, 1);
+    /* Устанавливаем желаемую толщину и цвет бордера */
+    z-index: -1;
 }
 
-.rounded {
+.btn-detail::before {
+    content: "";
     position: absolute;
-    top: 336px;
-    left: 160px;
+    top: -9px;
+    /* Отступ от верхней границы блока */
+    left: -9px;
+    /* Отступ от левой границы блока */
+    width: calc(100% + 15px);
+    /* Ширина псевдоэлемента с учетом отступов */
+    height: calc(100% + 15px);
+    /* Высота псевдоэлемента с учетом отступов */
+    border-radius: 50px;
+    /* Значение border-radius совпадает с основным элементом */
+    border: 1px solid rgba(240, 201, 154, 1);
+    /* Устанавливаем желаемую толщину и цвет бордера */
+    z-index: -1;
+}
+
+.btn-detail:hover {
+    color: #242490;
+}
+
+.btn-detail:active {
+    box-shadow: none
 }
 
 .btn-container-2 {
-    position: relative;
-    right: 28px;
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+    margin-top: 0px;
+    margin-left: 0px;
+    padding-left: 0px;
     text-align: center;
 }
 
-.incognito-container {
+.b-container-2 {
+    margin-top: 94px;
+    margin-left: -143px;
+}
+
+.phone-container {
+    margin-top: 0px;
+    margin-left: 0px;
+    color: #fff;
+}
+
+.btn-phone {
+    margin-top: 0px;
+    margin-left: 0px;
     position: relative;
 }
+
+.btn-phone::before {
+    content: '';
+    /* обязательная строка для отображения псевдоэлемента */
+    position: absolute;
+    /* позиция изображения относительно контейнера */
+    top: 50%;
+    /* центрируем изображение по вертикали */
+    left: 50%;
+    /* центрируем изображение по горизонтали */
+    transform: translate(-50%, -50%);
+    /* корректировка позиционирования */
+    background-image: url('../img/wts.png');
+    /* путь к изображению */
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 24px;
+    /* ширина картинки */
+    height: 24px;
+    /* высота картинки */
+    pointer-events: none;
+    /* игнорирование манипуляций с мышью (например клик) */
+}
+
+.phone-text {
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+.incognito-container {}
 
 .btn-inc {
+    display: flex;
+    flex-direction: column;
     position: relative;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+    margin-left: 0px;
 }
 
-.img-inc {
+.btn-inc::before {
+    content: '';
     position: absolute;
-    top: 8px;
-    left: 12px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url('../img/inc.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 32px;
+    pointer-events: none;
 }
 
 .inc-text {
-    position: absolute;
-    top: 61px;
-    left: -15px;
+    margin-top: 10px;
+    margin-left: 0px;
     color: #fff;
 }
 
 .container-18 {
-    margin-top: 82px;
+    margin-top: 56px;
 }
 
 .btn-18 {
+    display: flex;
+    flex-direction: column;
     position: relative;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+    margin-left: 0px;
 }
 
-.img-18 {
+.btn-18::before {
+    content: '';
     position: absolute;
-    top: 7px;
-    left: 7px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url('../img/18.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 36px;
+    height: 36px;
+    pointer-events: none;
 }
 
 .text-18 {
+    margin-top: 9px;
     white-space: nowrap;
-    position: absolute;
-    top: 196px;
-    left: -9px;
     color: #fff;
 }
 
 .container-24 {
-    margin-top: 74px;
+    margin-top: 50px;
 }
 
 .btn-24 {
+    display: flex;
+    flex-direction: column;
     position: relative;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+    margin-left: 0px;
 }
 
-.img-24 {
+.btn-24::before {
+    content: '';
     position: absolute;
-    top: 6px;
-    left: 5px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url('../img/24.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 39px;
+    height: 39px;
+    pointer-events: none;
 }
 
 .small-btn-right {
-    position: relative;
     width: 50px;
     height: 50px;
     border-radius: 50px;
-    left: 0px;
     border: none;
-    background-image: -moz-linear-gradient( 90deg, rgb(231,182,121) 0%, rgb(243,209,167) 100%);
-    background-image: -webkit-linear-gradient( 90deg, rgb(231,182,121) 0%, rgb(243,209,167) 100%);
-    background-image: -ms-linear-gradient( 90deg, rgb(231,182,121) 0%, rgb(243,209,167) 100%);
+    background-image: -moz-linear-gradient(90deg, rgb(231, 182, 121) 0%, rgb(243, 209, 167) 100%);
+    background-image: -webkit-linear-gradient(90deg, rgb(231, 182, 121) 0%, rgb(243, 209, 167) 100%);
+    background-image: -ms-linear-gradient(90deg, rgb(231, 182, 121) 0%, rgb(243, 209, 167) 100%);
     box-shadow: 0px 1px 1px 0px rgba(24, 24, 24, 0.75);
 }
 
 .text-24 {
     white-space: nowrap;
-    position: absolute;
-    margin-top: 8px;
-    left: -24px;
+    margin-top: 13px;
     color: #fff;
 }
 
 .shadow {
-    position: absolute;
-    top: 0px;
-    left: 0px;
     z-index: 1;
+    
 }
-  
 
+/* Стили для гамбургер-меню */
+.hamburger-button {
+    position: relative;
+    margin-top: 0px;
+    margin-left: 0px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 32px;
+    height: 18px;
+    text-align: center;
+  }
   
+  .hamburger-line {
+    margin-top: 0px;
+    margin-left: 0px;
+    background-color: #fff;
+    height: 2px;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  
+  .hamburger-line:nth-child(1) { margin-bottom: 0px; }
+  .hamburger-line:nth-child(2) { top: 8px; }
+  .hamburger-line:nth-child(3) { top: 16px; }
+  
+  /* Стиль для выпадающего меню */
+  .nav-menu {
+    background-color: white;
+    position: absolute;
+    top: 40px; // Высота кнопки + некоторый отступ
+    left: 16px; // Отступ слева
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 150px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s;
+    z-index: 10; // Установите z-index выше, чтоб убедиться, что меню показывается поверх других элементов
+}
+
+.nav-menu ul { list-style: none; margin: 0; padding: 0; }
+.nav-menu li { padding: 12px 16px; }
+.nav-menu a { text-decoration: none; color: black; }
+
+/* Видимость меню при нажатии кнопки */
+.nav-menu.open {
+    max-height: 200px;
+}
+
+/* Анимация кнопки гамбургер-меню при нажатии */
+.hamburger-button.open .hamburger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-button.open .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-button.open .hamburger-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+.phone-container {
+    display: none;
+}
+
+.humburger-menu {
+    flex: 67%;
+}
+
+.hamburger-menu,
+.hamburger-button,
+.nav-menu {
+    display: none;
+}
+
+.mob {
+    display: none;
+}
+
+.mob-2 {
+    display: none;
+}
+
+@media screen and (max-width: 1550px) {
+    .header-logo {
+        flex: 40%;
+    }
+
+    .container-mob {
+        display: flex;
+        justify-content: flex-start;
+        margin-left: 0px;
+        height: auto;
+    }
+
+    .nav-menu {
+        display: inline-block;
+    }
+
+    .hamburger-menu{
+        display: flex;
+        justify-content: center;
+        flex: 60%;
+    }
+
+    .hamburger-button {
+        margin-top: 20px;
+        margin-left: 0px;
+        display: inline-block;
+    }
+}
+
+@media (max-width: 1550px) {
+    .container {
+        display: none;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .header-btn {
+        display: none;
+    }
+
+    .btn-container {
+        display: none;
+    }
+
+    .btn-container-2 {
+        display: none;
+    }
+
+    .mob {
+        display: flex;
+        align-items: center;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .phone-text {
+        margin-top: 5px;
+    }
+
+    .mob-items {
+        display: flex;
+        flex: 33%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .button-text-container {
+        justify-content: center;
+    }
+
+    .button-text-container-2 {
+        display: flex;
+        margin-left: 0px;
+        justify-content: center;
+        flex: none;
+    }
+
+    .text-container {
+        margin-left: 0px;
+    }
+
+    .phone-container {
+        display: block;
+        margin-top: 11px;
+    }
+    .btn-phone::before {
+        top: 48%;
+        left: 38%;
+    }
+
+    .incognito-container {
+        margin-top: 11px;
+    }
+
+    .container-18 {
+        margin-top: 11px;
+    }
+
+    .container-24 {
+        margin-top: 10px;
+    }
+
+    .text-24 {
+        white-space: wrap;
+    }
+
+    .mob-2 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 50px;
+        margin-left: 400px;
+        margin-right: 470px;
+    }
+
+    .inst-container {
+        margin-top: 0px;
+    }
+
+    .wts-container {
+        margin-top: 0px;
+    }
+}
